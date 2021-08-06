@@ -32,7 +32,7 @@ namespace Authorization.Services
             List<Customer> customers = _customerRepository.GetCustomers();
             
             Customer customer = customers.FirstOrDefault(customer =>
-                customer.Username == username
+                customer.Username.ToLower() == username.Trim().ToLower()
                 && customer.Password == password);
 
             if (customer != null)

@@ -69,13 +69,6 @@ namespace Authorization.Controllers
             }
         }
 
-        [Route(""), HttpGet]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public RedirectResult RedirectToSwaggerUi()
-        {
-            return Redirect("/swagger/");
-        }
-
         [HttpGet]
         [Route("ValidateToken")]
         public IActionResult ValidateToken() {

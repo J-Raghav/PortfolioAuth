@@ -62,6 +62,7 @@ namespace Authorization
                 };
 
                 c.SwaggerDoc(name: "v1.0", new OpenApiInfo { Title = "Authentication", Version = "1.0" });
+                
                 // Configure swagger to use jwt authentication                
                 c.AddSecurityDefinition("jwt_auth", securityDefinition);
                 c.AddSecurityRequirement(securityRequirements);
@@ -100,6 +101,11 @@ namespace Authorization
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
