@@ -33,10 +33,10 @@ namespace AuthorizationTest
 
         [Test]
         public void GetCustomer_ValidUsername_ReturnsCustomer() {
-            Customer customer = customerRepository.GetCustomer("t1");
+            Customer customer = customerRepository.GetCustomer("Raghav");
 
             Assert.IsNotNull(customer);
-            Assert.AreEqual(customer.Username, "t1");
+            Assert.AreEqual(customer.Username, "Raghav");
         }
 
         [Test]
@@ -50,10 +50,10 @@ namespace AuthorizationTest
         [Test]
         public void GetCustomerDetail_ValidUsername_ReturnsCustomerDetail()
         {
-            CustomerDetail customerDetail = customerRepository.GetCustomerDetail("t1");
+            CustomerDetail customerDetail = customerRepository.GetCustomerDetail("Raghav");
 
             Assert.IsNotNull(customerDetail);
-            Assert.AreEqual(customerDetail.Username, "t1");
+            Assert.AreEqual(customerDetail.Username, "Raghav");
         }
 
         [Test]
