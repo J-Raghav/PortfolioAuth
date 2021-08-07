@@ -13,7 +13,7 @@ namespace Authorization.Controllers
         [ApiExplorerSettings(IgnoreApi = true)]
         public RedirectResult RedirectToSwaggerUi()
         {
-            return Redirect("/swagger/");
+            return Redirect("/swagger");
         }
     }
 }

@@ -38,7 +38,7 @@ namespace AuthorizationTest
             // Setup and initialize common mock dependencies
             configMock = new Mock<IConfiguration>();
             configMock.Setup(p => p["Jwt:Key"]).Returns("ThisIsMySecretKey");
-            configMock.Setup(p => p["Jwt:Issuer"]).Returns("https://localhost:1959");
+            configMock.Setup(p => p["Jwt:Issuer"]).Returns("https://portfolioauth.azurewebsites.net");
             configMock.Setup(p => p["Jwt:Expires"]).Returns("15");
 
         }

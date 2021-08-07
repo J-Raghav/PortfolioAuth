@@ -105,7 +105,8 @@ namespace Authorization
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
-                .AllowAnyHeader());
+                .AllowAnyHeader()
+            );
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

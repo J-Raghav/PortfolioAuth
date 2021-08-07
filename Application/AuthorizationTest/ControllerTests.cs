@@ -36,7 +36,7 @@ namespace AuthorizationTest
             
             configMock = new Mock<IConfiguration>();
             configMock.Setup(p => p["Jwt:Key"]).Returns("ThisIsMySecretKey");
-            configMock.Setup(p => p["Jwt:Issuer"]).Returns("https://localhost:1959");
+            configMock.Setup(p => p["Jwt:Issuer"]).Returns("https://portfolioauth.azurewebsites.net");
             configMock.Setup(p => p["Jwt:Expires"]).Returns("15");
 
         }
@@ -60,7 +60,10 @@ namespace AuthorizationTest
 
             var response = loginController.Login(loginModel);
             Assert.IsNotNull(response);
+
             var result = response as OkObjectResult;
+
+            Assert.IsNotNull(result);
             Assert.AreEqual(200, result.StatusCode);
         }
 
@@ -80,6 +83,8 @@ namespace AuthorizationTest
 
             Assert.IsNotNull(response);
             var result = response as StatusCodeResult;
+
+            Assert.IsNotNull(result);
             Assert.AreEqual(500, result.StatusCode);
 
         }
@@ -101,8 +106,23 @@ namespace AuthorizationTest
 
             Assert.IsNotNull(response);
             var result = response as UnauthorizedObjectResult;
+            
+            Assert.IsNotNull(result);
             Assert.AreEqual(401, result.StatusCode);
         }
+        #endregion
+
+        #region Home Controller tests
+
+        [Test]
+        public void RedirectToSwaggerUi_RedirectsToSwagger() {
+            HomeController homeController = new HomeController();
+            var response = homeController.RedirectToSwaggerUi();
+
+            Assert.IsNotNull(response);
+            Assert.AreEqual(response.Url, "/swagger");
+        }
+        
         #endregion
     }
 }

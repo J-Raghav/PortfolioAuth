@@ -59,7 +59,7 @@ namespace Authorization.Controllers
                 }
 
                 // Returns these if user details are null
-                return Unauthorized("Invalid Credentials");
+                return Unauthorized(new { message = "Invalid Credentials"});
             }
             catch (Exception e)
             {
@@ -69,7 +69,7 @@ namespace Authorization.Controllers
             }
         }
 
-        [HttpGet]
+/*      [HttpGet]
         [Route("ValidateToken")]
         public IActionResult ValidateToken() {
             try
@@ -91,7 +91,7 @@ namespace Authorization.Controllers
                 _log4net.Error("Error Occured from " + nameof(ValidateToken) + "Error Message : " + e.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-        }
+        }*/
 
     }
 }
